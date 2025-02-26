@@ -21,14 +21,14 @@ public class BasicCalculator {
             char calcSymbol = scanner.nextLine().charAt(0);
 
             if (calcSymbol == '+') {
-                result = add(calcNum1, calcNum2);
+                result = calcNum1 + calcNum2;
             } else if (calcSymbol == '-'){
-                result = subtract(calcNum1, calcNum2);
+                result = calcNum1 - calcNum2;
             } else if (calcSymbol == '*' || calcSymbol == 'x' || calcSymbol =='X') {
-                result = multiply(calcNum1, calcNum2);
+                result = calcNum1 * calcNum2;
             } else if (calcSymbol =='/'){
                 if (calcNum2 != 0) {
-                    result = divide(calcNum1, calcNum2);
+                    result = calcNum1 / calcNum2;
                 } else {
                     calcError = true;
                     System.out.println("\n나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
@@ -44,27 +44,4 @@ public class BasicCalculator {
             }
         }
     }
-
-    //Methods
-    //더하기
-    public static int add(int value1, int value2) {
-        return value1 + value2;
-    }
-
-    //빼기
-    public static int subtract(int value1, int value2) {
-        return value1 - value2;
-    }
-
-    //곱하기
-    public static int multiply(int value1, int value2) {
-        return value1 * value2;
-    }
-
-    //나누기
-    public static int divide(int value1, int value2) {
-        return value1 / value2;
-    }
-
-
 }
