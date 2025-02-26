@@ -32,11 +32,26 @@ public class App {
                 System.out.println("에러! " + result[2]);
             }
 
-            //종료
-            System.out.println("종료하시겠습니까? (exit) ");
+            //종료 및 기타 명령어
+            System.out.println("계속하시겠습니까? (exit, delete) ");
             String userInput = scanner.nextLine();
             if (userInput.equals("exit")) {
                 break;
+            } else if (userInput.equals("delete")) {
+                calculator.deleteResult();
+                //남아있는 기록이 있을 경우 반복
+                while(true){
+                    System.out.println("계속하시겠습니까? (exit, delete) ");
+                    String nextInput = scanner.nextLine();
+                    if (nextInput.equals("delete")) {
+                        calculator.deleteResult();
+                        if(calculator.remainingResult() == 0){
+                            break;
+                        }
+                    } else {
+                        break;
+                    }
+                }
             }
         }
     }
