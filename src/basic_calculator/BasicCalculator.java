@@ -6,7 +6,7 @@ public class BasicCalculator {
     public static void main(String[] args) {
         //Main
         Scanner scanner = new Scanner(System.in);
-        int result = 0;
+        String result = "";
 
         while(true) {
             boolean calcError = false;
@@ -21,14 +21,14 @@ public class BasicCalculator {
             char calcSymbol = scanner.nextLine().charAt(0);
 
             if (calcSymbol == '+') {
-                result = calcNum1 + calcNum2;
+                result = Integer.toString(calcNum1 + calcNum2);
             } else if (calcSymbol == '-'){
-                result = calcNum1 - calcNum2;
+                result = Integer.toString(calcNum1 - calcNum2);
             } else if (calcSymbol == '*' || calcSymbol == 'x' || calcSymbol =='X') {
-                result = calcNum1 * calcNum2;
+                result =  Integer.toString(calcNum1 * calcNum2);
             } else if (calcSymbol =='/'){
                 if (calcNum2 != 0) {
-                    result = calcNum1 / calcNum2;
+                    result =  String.format("%.2f",(1.0 * calcNum1) / calcNum2);
                 } else {
                     calcError = true;
                     System.out.println("\n나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
