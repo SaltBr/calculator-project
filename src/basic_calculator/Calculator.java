@@ -15,19 +15,23 @@ public class Calculator {
         this.calcSymbol = symbol;
     }
 
+    //result getter
     public String[] getResult() {
         calculate();
         return currentResult;
     }
 
+    //result setter
     public void setResult(String[] result) {
         this.currentResult = result;
     }
 
-    public int remainingResult() {
+    //연산 기록 getter
+    public int getRemainingResult() {
         return resultList.size();
     }
 
+    //첫 번째 기록 삭제
     public void deleteResult() {
         resultList.remove(0);
         System.out.println(resultList + "\n");
@@ -52,7 +56,7 @@ public class Calculator {
                 break;
             case '/':
                 if (calcNum2 != 0) {
-                    currentResult[0] = String.format("%.2f",(1.0 * calcNum1) / calcNum2);
+                    currentResult[0] = String.format("%.2f", (1.0 * calcNum1) / calcNum2);
                     resultList.add(currentResult[0]);
                     break;
                 } else {
@@ -61,7 +65,9 @@ public class Calculator {
                     break;
                 }
             default:
-                System.out.println("무언가 잘못되었습니다!");
+                //로직이 없는 기호가 들어올 경우
+                System.out.println("지원하지 않는 기호입니다!");
+                currentResult[1] = "true";
         }
     }
 }
