@@ -41,6 +41,9 @@ public class App {
             }
 
             //종료 및 기타 명령어
+            //exit: 종료
+            //delete: 첫 연산 기록 삭제
+            //lr: 더 큰 결과값 출력
             System.out.println("계속하시겠습니까? (exit, delete, lr) ");
             String userInput = scanner.nextLine();
             if (userInput.equals("exit")) {
