@@ -25,13 +25,12 @@ public class App {
                 }
             }
 
-
             //계산 기호 받기
             System.out.print("계산 기호를 입력하세요: ");
             calcSymbol = scanner.nextLine().charAt(0);
 
             //Calculator
-            Calculator calculator = new Calculator(calcNum[0], calcNum[1], calcSymbol);
+            ArithmeticCalculator calculator = new ArithmeticCalculator(calcNum[0], calcNum[1], calcSymbol);
             result = calculator.getResult();
 
             //결과 및 에러 출력

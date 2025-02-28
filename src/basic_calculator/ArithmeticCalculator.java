@@ -1,15 +1,16 @@
 package basic_calculator;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Calculator {
+public class ArithmeticCalculator {
     private final int calcNum1;
     private final int calcNum2;
     private final char calcSymbol;
     private String [] currentResult= {"0", "false", ""};
-    private static ArrayList<String> resultList = new ArrayList<>();
+    private static List<String> resultList = new ArrayList<>();
 
-    Calculator(int num1, int num2, char symbol) {
+    ArithmeticCalculator(int num1, int num2, char symbol) {
         this.calcNum1 = num1;
         this.calcNum2 = num2;
         this.calcSymbol = symbol;
