@@ -7,8 +7,8 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         while(true) {
-            String [] result;
-            int [] calcNum = new int[2];
+            String[] result;
+            double[] calcNum = new double[2];
             char calcSymbol = ' ';
             boolean isError = false;
 
@@ -30,7 +30,7 @@ public class App {
             calcSymbol = scanner.nextLine().charAt(0);
 
             //Calculator
-            ArithmeticCalculator calculator = new ArithmeticCalculator(calcNum[0], calcNum[1], calcSymbol);
+            ArithmeticCalculator<Double, Character> calculator = new ArithmeticCalculator<>(calcNum[0], calcNum[1], calcSymbol);
             result = calculator.getResult();
 
             //결과 및 에러 출력
@@ -41,10 +41,15 @@ public class App {
             }
 
             //종료 및 기타 명령어
-            System.out.println("계속하시겠습니까? (exit, delete) ");
+            System.out.println("계속하시겠습니까? (exit, delete, lr) ");
             String userInput = scanner.nextLine();
             if (userInput.equals("exit")) {
                 break;
+            } else if (userInput.equals("lr")){
+                //입력받은 값보다 큰 결과값 출력
+                System.out.print("기준 숫자 입력:  ");
+                String inputNum = scanner.nextLine();
+                calculator.getLargeResults(inputNum);
             } else if (userInput.equals("delete")) {
                 calculator.deleteResult();
                 //삭제 가능한 기록이 있을 경우 반복
@@ -56,6 +61,8 @@ public class App {
                         if(calculator.getRemainingResult() == 0){
                             break;
                         }
+                    } else if (nextInput.equals("exit")) {
+                        return;
                     } else {
                         break;
                     }
