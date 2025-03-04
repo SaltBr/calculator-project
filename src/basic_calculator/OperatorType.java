@@ -4,7 +4,8 @@ public enum OperatorType {
     ADD('+'),
     SUBTRACT('-'),
     MULTIPLY('*'),
-    DIVIDE('/');
+    DIVIDE('/'),
+    NONE(' ');
 
     final char operator;
 

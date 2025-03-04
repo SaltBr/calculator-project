@@ -10,7 +10,8 @@ public class App {
             String[] result;
             double[] calcNum = new double[2];
             char calcSymbol = ' ';
-            boolean isError = false;
+            boolean correctOp = false;
+            OperatorType operator = OperatorType.NONE;
 
             //숫자 받기
             for (int i = 0; i < 2; i++) {
@@ -26,8 +27,32 @@ public class App {
             }
 
             //계산 기호 받기
-            System.out.print("계산 기호를 입력하세요: ");
-            calcSymbol = scanner.nextLine().charAt(0);
+            while(!correctOp) {
+                System.out.print("계산 기호를 입력하세요: ");
+                calcSymbol = scanner.nextLine().charAt(0);
+                switch (calcSymbol) {
+                    case '+':
+                        operator = OperatorType.ADD;
+                        correctOp = true;
+                        break;
+                    case '-':
+                        operator = OperatorType.SUBTRACT;
+                        correctOp = true;
+                        break;
+                    case '*':
+                    case 'x':
+                    case 'X':
+                        operator =  OperatorType.MULTIPLY;
+                        correctOp = true;
+                        break;
+                    case '/':
+                        operator =  OperatorType.DIVIDE;
+                        correctOp = true;
+                        break;
+                    default:
+                        System.out.println("지원하지 않는 기호입니다.");
+                }
+            }
 
             //Calculator
             ArithmeticCalculator<Double, Character> calculator = new ArithmeticCalculator<>(calcNum[0], calcNum[1], calcSymbol);
