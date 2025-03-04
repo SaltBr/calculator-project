@@ -10,7 +10,7 @@ public class ArithmeticCalculator <T extends Number> {
     private final T calcNum2;
     private final OperatorType calcSymbol;
     private String [] currentResult= {"0", "false", ""};
-    private static List<String> resultList = new ArrayList<>();
+    private final static List<String> resultList = new ArrayList<>();
 
     ArithmeticCalculator(T num1, T num2, OperatorType symbol) {
         this.calcNum1 = num1;

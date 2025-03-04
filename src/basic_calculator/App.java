@@ -9,7 +9,6 @@ public class App {
         while(true) {
             String[] result;
             double[] calcNum = new double[2];
-            char calcSymbol = ' ';
             boolean correctOp = false;
             OperatorType operator = OperatorType.NONE;
 
@@ -29,7 +28,7 @@ public class App {
             //계산 기호 받기
             while(!correctOp) {
                 System.out.print("계산 기호를 입력하세요: ");
-                calcSymbol = scanner.nextLine().charAt(0);
+                char calcSymbol = scanner.nextLine().charAt(0);
                 switch (calcSymbol) {
                     case '+':
                         operator = OperatorType.ADD;
@@ -71,30 +70,31 @@ public class App {
             //lr: 더 큰 결과값 출력
             System.out.println("계속하시겠습니까? (exit, delete, lr) ");
             String userInput = scanner.nextLine();
-            if (userInput.equals("exit")) {
-                break;
-            } else if (userInput.equals("lr")){
-                //입력받은 값보다 큰 결과값 출력
-                System.out.print("기준 숫자 입력:  ");
-                String inputNum = scanner.nextLine();
-                calculator.getLargeResults(inputNum);
-            } else if (userInput.equals("delete")) {
-                calculator.deleteResult();
-                //삭제 가능한 기록이 있을 경우 반복
-                while(true){
-                    System.out.println("계속하시겠습니까? (exit, delete) ");
-                    String nextInput = scanner.nextLine();
-                    if (nextInput.equals("delete")) {
-                        calculator.deleteResult();
-                        if(calculator.getRemainingResult() == 0){
+            switch(userInput){
+                case "exit":
+                    break;
+                case "lr":
+                    System.out.print("기준 숫자 입력:  ");
+                    String inputNum = scanner.nextLine();
+                    calculator.getLargeResults(inputNum);
+                case "delete":
+                    calculator.deleteResult();
+                    //삭제 가능한 기록이 있을 경우 반복
+                    while(true){
+                        System.out.println("계속하시겠습니까? (exit, delete) ");
+                        String nextInput = scanner.nextLine();
+                        if (nextInput.equals("delete")) {
+                            calculator.deleteResult();
+                            if(calculator.getRemainingResult() == 0){
+                                System.out.println("더 이상 지울 수 있는 결과가 없습니다.");
+                                break;
+                            }
+                        } else if (nextInput.equals("exit")) {
                             break;
+                        } else {
+                            return;
                         }
-                    } else if (nextInput.equals("exit")) {
-                        return;
-                    } else {
-                        break;
                     }
-                }
             }
         }
     }
