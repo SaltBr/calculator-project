@@ -78,6 +78,7 @@ public class App {
                     System.out.print("기준 숫자 입력:  ");
                     String inputNum = scanner.nextLine();
                     calculator.getLargeResults(inputNum);
+                    break;
                 case "delete":
                     calculator.deleteResult();
                     //삭제 가능한 기록이 있을 경우 반복
@@ -96,6 +97,9 @@ public class App {
                             return;
                         }
                     }
+                    break;
+                default:
+                    break;
             }
         }
     }
