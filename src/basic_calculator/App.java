@@ -70,9 +70,10 @@ public class App {
             //lr: 더 큰 결과값 출력
             System.out.println("계속하시겠습니까? (exit, delete, lr) ");
             String userInput = scanner.nextLine();
+            boolean repeat = true;
             switch(userInput){
                 case "exit":
-                    break;
+                    System.exit(0);
                 case "lr":
                     System.out.print("기준 숫자 입력:  ");
                     String inputNum = scanner.nextLine();
@@ -80,17 +81,17 @@ public class App {
                 case "delete":
                     calculator.deleteResult();
                     //삭제 가능한 기록이 있을 경우 반복
-                    while(true){
+                    while(repeat){
                         System.out.println("계속하시겠습니까? (exit, delete) ");
                         String nextInput = scanner.nextLine();
                         if (nextInput.equals("delete")) {
                             calculator.deleteResult();
                             if(calculator.getRemainingResult() == 0){
                                 System.out.println("더 이상 지울 수 있는 결과가 없습니다.");
-                                break;
+                                repeat = false;
                             }
                         } else if (nextInput.equals("exit")) {
-                            break;
+                            System.exit(0);
                         } else {
                             return;
                         }
