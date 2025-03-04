@@ -55,7 +55,7 @@ public class App {
             }
 
             //Calculator
-            ArithmeticCalculator<Double, Character> calculator = new ArithmeticCalculator<>(calcNum[0], calcNum[1], calcSymbol);
+            ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>(calcNum[0], calcNum[1], operator);
             result = calculator.getResult();
 
             //결과 및 에러 출력

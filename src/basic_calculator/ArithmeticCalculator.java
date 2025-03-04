@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-public class ArithmeticCalculator <T extends Number, S extends Character> {
+public class ArithmeticCalculator <T extends Number> {
     private final T calcNum1;
     private final T calcNum2;
-    private final S calcSymbol;
+    private final OperatorType calcSymbol;
     private String [] currentResult= {"0", "false", ""};
     private static List<String> resultList = new ArrayList<>();
 
-    ArithmeticCalculator(T num1, T num2, S symbol) {
+    ArithmeticCalculator(T num1, T num2, OperatorType symbol) {
         this.calcNum1 = num1;
         this.calcNum2 = num2;
         this.calcSymbol = symbol;
@@ -48,26 +48,23 @@ public class ArithmeticCalculator <T extends Number, S extends Character> {
     }
 
     //계산 메서드
-    public void calculate(T calcNum1, T calcNum2, S calcSymbol) {
+    public void calculate(T calcNum1, T calcNum2, OperatorType calcSymbol) {
         double num1 = calcNum1.doubleValue();
         double num2 = calcNum2.doubleValue();
-        char symbol = Character.valueOf(calcSymbol);
-        switch (symbol) {
-            case '+':
+        switch (calcSymbol) {
+            case ADD:
                 currentResult[0] = String.format("%.2f", num1 + num2);
                 resultList.add(currentResult[0]);
                 break;
-            case '-':
+            case SUBTRACT:
                 currentResult[0] = String.format("%.2f", num1 - num2);
                 resultList.add(currentResult[0]);
                 break;
-            case '*':
-            case 'x':
-            case 'X':
+            case MULTIPLY:
                 currentResult[0] = String.format("%.2f", num1 * num2);
                 resultList.add(currentResult[0]);
                 break;
-            case '/':
+            case DIVIDE:
                 if (num2 != 0) {
                     currentResult[0] = String.format("%.2f", num1 / num2);
                     resultList.add(currentResult[0]);
