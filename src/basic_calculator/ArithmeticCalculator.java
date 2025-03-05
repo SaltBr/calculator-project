@@ -38,7 +38,7 @@ public class ArithmeticCalculator <T extends Number> {
     public void deleteResult() {
         resultList.remove(0);
         System.out.println(resultList + "\n");
-    }
+    } 
 
     //입력받은 값보다 큰 결과값 출력
     public void getLargeResults(String initNum){
