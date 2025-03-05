@@ -3,7 +3,7 @@ package basic_calculator;
 import java.util.Scanner;
 
 public class InputManager {
-    Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public double[] NumberInput() {
         double[] calcNum = new double[2];
@@ -52,5 +52,46 @@ public class InputManager {
             }
         }
         return operator;
+    }
+
+    public void CommandInput() {
+        //exit: 종료
+        //delete: 첫 연산 기록 삭제
+        //lr: 더 큰 결과값 출력
+        ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
+
+        System.out.println("계속하시겠습니까? (exit, delete, lr) ");
+        String userInput = scanner.nextLine();
+        boolean repeat = true;
+        switch(userInput){
+            case "exit":
+                System.exit(0);
+            case "lr":
+                System.out.print("기준 숫자 입력:  ");
+                String inputNum = scanner.nextLine();
+                calculator.getLargeResults(inputNum);
+                break;
+            case "delete":
+                calculator.deleteResult();
+                //삭제 가능한 기록이 있을 경우 반복
+                while(repeat){
+                    System.out.println("계속하시겠습니까? (exit, delete) ");
+                    String nextInput = scanner.nextLine();
+                    if (nextInput.equals("delete")) {
+                        calculator.deleteResult();
+                        if(calculator.getRemainingResult() == 0){
+                            System.out.println("더 이상 지울 수 있는 결과가 없습니다.");
+                            repeat = false;
+                        }
+                    } else if (nextInput.equals("exit")) {
+                        System.exit(0);
+                    } else {
+                        break;
+                    }
+                }
+                break;
+            default:
+                break;
+        }
     }
 }

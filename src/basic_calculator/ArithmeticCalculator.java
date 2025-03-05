@@ -6,20 +6,11 @@ import java.util.stream.Collectors;
 
 
 public class ArithmeticCalculator <T extends Number> {
-    private final T calcNum1;
-    private final T calcNum2;
-    private final OperatorType calcSymbol;
     private String [] currentResult= {"0", "false", ""};
     private final static List<String> resultList = new ArrayList<>();
 
-    ArithmeticCalculator(T num1, T num2, OperatorType symbol) {
-        this.calcNum1 = num1;
-        this.calcNum2 = num2;
-        this.calcSymbol = symbol;
-    }
-
     //result getter
-    public String[] getResult() {
+    public String[] getResult(T calcNum1, T calcNum2, OperatorType calcSymbol) {
         calculate(calcNum1, calcNum2, calcSymbol);
         return currentResult;
     }
@@ -38,7 +29,7 @@ public class ArithmeticCalculator <T extends Number> {
     public void deleteResult() {
         resultList.remove(0);
         System.out.println(resultList + "\n");
-    } 
+    }
 
     //입력받은 값보다 큰 결과값 출력
     public void getLargeResults(String initNum){
