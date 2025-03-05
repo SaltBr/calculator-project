@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class InputManager {
     private final Scanner scanner = new Scanner(System.in);
 
+    //숫자 받기
     public double[] NumberInput() {
         double[] calcNum = new double[2];
         for (int i = 0; i < 2; i++) {
@@ -21,6 +22,7 @@ public class InputManager {
         return calcNum;
     }
 
+    //계산 기호 받기
     public OperatorType OperatorInput() {
         boolean correctOp = false;
         OperatorType operator = OperatorType.NONE;
@@ -54,6 +56,7 @@ public class InputManager {
         return operator;
     }
 
+    //종료 및 기타 명령어
     public void CommandInput() {
         //exit: 종료
         //delete: 첫 연산 기록 삭제

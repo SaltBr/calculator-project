@@ -8,8 +8,8 @@ public class App {
 
         while(true) {
             String[] result;
-            double[] calcNum = new double[2];
-            OperatorType operator = OperatorType.NONE;
+            double[] calcNum;
+            OperatorType operator;
 
             //Input Manager
             InputManager inputManager = new InputManager();
@@ -20,7 +20,7 @@ public class App {
             //계산 기호 받기
             operator = inputManager.OperatorInput();
 
-            //Calculator
+            //Calculator 인스턴스화 및 계산
             ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
             result = calculator.getResult(calcNum[0], calcNum[1], operator);
 
