@@ -65,6 +65,10 @@ public class ArithmeticCalculator <T extends Number> {
                     currentResult[2] = "\n나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.";
                     break;
                 }
+            case REMAINDER:
+                currentResult[0] = String.format("%.2f", num1 % num2);
+                resultList.add(currentResult[0]);
+                break;
             default:
                 //로직이 없는 기호가 들어올 경우
                 System.out.println("지원하지 않는 기호입니다!");

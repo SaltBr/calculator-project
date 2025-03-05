@@ -12,7 +12,7 @@ public class InputManager {
             while (true) {
                 try {
                     System.out.print("숫자" + (i + 1) + " 입력: ");
-                    calcNum[i] = Integer.parseInt(scanner.nextLine());
+                    calcNum[i] = Double.parseDouble(scanner.nextLine());
                     break;
                 } catch (NumberFormatException e) {
                     System.out.println("잘못된 숫자입니다.");
@@ -45,6 +45,10 @@ public class InputManager {
                     operator =  OperatorType.MULTIPLY;
                     correctOp = true;
                     break;
+                case '%':
+                    operator = OperatorType.REMAINDER;
+                    correctOp = true;
+                    break;
                 case '/':
                     operator =  OperatorType.DIVIDE;
                     correctOp = true;
@@ -70,7 +74,7 @@ public class InputManager {
             case "exit":
                 System.exit(0);
             case "lr":
-                System.out.print("기준 숫자 입력:  ");
+                System.out.print("기준 숫자 입력: ");
                 String inputNum = scanner.nextLine();
                 calculator.getLargeResults(inputNum);
                 break;

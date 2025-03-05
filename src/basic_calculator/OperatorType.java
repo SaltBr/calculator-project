@@ -5,6 +5,7 @@ public enum OperatorType {
     SUBTRACT('-'),
     MULTIPLY('*'),
     DIVIDE('/'),
+    REMAINDER('%'),
     NONE(' ');
 
     final char operator;
