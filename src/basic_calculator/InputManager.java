@@ -81,15 +81,15 @@ public class InputManager {
             case "delete":
                 calculator.deleteResult();
                 //삭제 가능한 기록이 있을 경우 반복
-                while(repeat){
+                while(true){
                     System.out.println("계속하시겠습니까? (exit, delete) ");
                     String nextInput = scanner.nextLine();
                     if (nextInput.equals("delete")) {
-                        calculator.deleteResult();
                         if(calculator.getRemainingResult() == 0){
                             System.out.println("더 이상 지울 수 있는 결과가 없습니다.");
-                            repeat = false;
+                            break;
                         }
+                        calculator.deleteResult();
                     } else if (nextInput.equals("exit")) {
                         System.exit(0);
                     } else {
