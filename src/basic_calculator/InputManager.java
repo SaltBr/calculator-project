@@ -84,11 +84,11 @@ public class InputManager {
                     System.out.println("계속하시겠습니까? (exit, delete) ");
                     String nextInput = scanner.nextLine();
                     if (nextInput.equals("delete")) {
-                        if(calculator.getRemainingResult() == 0){
+                        try {
+                            calculator.deleteResult();
+                        } catch (IndexOutOfBoundsException e) {
                             System.out.println("더 이상 지울 수 있는 결과가 없습니다.");
-                            break;
                         }
-                        calculator.deleteResult();
                     } else if (nextInput.equals("exit")) {
                         System.exit(0);
                     } else {
