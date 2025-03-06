@@ -1,5 +1,4 @@
 package basic_calculator;
-import java.util.Scanner;
 
 public class App {
 
