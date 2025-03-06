@@ -69,7 +69,6 @@ public class InputManager {
 
         System.out.println("계속하시겠습니까? (exit, delete, lr) ");
         String userInput = scanner.nextLine();
-        boolean repeat = true;
         switch(userInput){
             case "exit":
                 System.exit(0);
